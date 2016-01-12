@@ -15,12 +15,13 @@
 # You should have received a copy of the GNU General Public License
 # along with Hypertable. If not, see <http://www.gnu.org/licenses/>
 #
+# Modifications Copyright (C) 2016 Zenko Klapko Jr.
 
 # - Find Node.js
 #  NODEJS_FOUND      - True if node.js found
 #  NODEJS_EXECUTABLE - Path to node.js executable
 
-exec_program(env ARGS which node OUTPUT_VARIABLE NODEJS_EXECUTABLE
+exec_program(env ARGS which nodejs OUTPUT_VARIABLE NODEJS_EXECUTABLE
              RETURN_VALUE NODEJS_RETURN)
 
 if (NODEJS_RETURN STREQUAL "0")

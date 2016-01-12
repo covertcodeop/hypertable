@@ -1,5 +1,5 @@
 # Copyright (C) 2007-2015 Hypertable, Inc.
-#
+# 
 # This file is part of Hypertable.
 #
 # Hypertable is free software; you can redistribute it and/or
@@ -15,6 +15,7 @@
 # You should have received a copy of the GNU General Public License
 # along with Hypertable. If not, see <http://www.gnu.org/licenses/>
 #
+# Modifications Copyright (C) 2016 Zenko Klapko Jr.
 
 # - Find the Boost includes and libraries.
 # The following variables are set if Boost is found.  If Boost is not
@@ -141,7 +142,7 @@ macro(FIND_BOOST_LIBRARY lib libname libroot required)
 
   find_library(${lib} NO_DEFAULT_PATH
     NAMES ${${lib}_NAMES}
-    PATHS "${libroot}/lib" "${libroot}/lib64" /lib /usr/lib /usr/local/lib /opt/local/lib
+    PATHS "${libroot}/lib" "${libroot}/lib64" /lib /usr/lib /usr/local/lib /opt/local/lib /usr/lib/x86_64-linux-gnu
   )
   if (required AND ${lib} MATCHES "NOTFOUND$")
     message(FATAL_ERROR "required boost library: ${lib} not found")

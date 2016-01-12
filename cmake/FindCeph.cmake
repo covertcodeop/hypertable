@@ -15,6 +15,7 @@
 # You should have received a copy of the GNU General Public License
 # along with Hypertable. If not, see <http://www.gnu.org/licenses/>
 #
+# Modifications Copyright (C) 2016 Zenko Klapko Jr.
 
 # - Find Ceph
 # Find the native Ceph includes and library
@@ -29,15 +30,16 @@ if (Ceph_INCLUDE)
   set(Ceph_FIND_QUIETLY TRUE)
 endif ()
 
-find_path(Ceph_INCLUDE ceph/libceph.h
-  /usr/local/include
+find_path(Ceph_INCLUDE
+  NAMES ceph/libceph.h cephfs/libcephfs.h
+  PATHS /usr/local/include /usr/include
   $ENV{HOME}/ceph/src/client
 )
 mark_as_advanced(Ceph_INCLUDE)
 
 find_library(Ceph_LIB
-	NAMES ceph
-	PATHS /usr/local/lib
+	NAMES ceph cephfs
+	PATHS /usr/local/lib /usr/lib
 	      $ENV{HOME}/ceph/src/.libs)
 mark_as_advanced(Ceph_LIB)
 

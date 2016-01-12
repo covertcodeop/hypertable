@@ -15,6 +15,7 @@
 # You should have received a copy of the GNU General Public License
 # along with Hypertable. If not, see <http://www.gnu.org/licenses/>
 #
+# Modifications Copyright (C) 2016 Zenko Klapko Jr.
 
 # - Find Libssh
 # Find the libssh includes and library
@@ -38,12 +39,12 @@ find_library(Libssh_LIBRARY NO_DEFAULT_PATH
 
 find_library(Libssh_ssl_LIBRARY NO_DEFAULT_PATH
   NAMES ssl
-  PATHS ${HT_DEPENDENCY_LIB_DIR} /usr/local/ssl/lib /lib /lib64 /usr/lib /usr/lib64 /usr/local/lib /usrlocal/lib64 /opt/local/lib
+  PATHS ${HT_DEPENDENCY_LIB_DIR} /usr/local/ssl/lib /lib /lib64 /usr/lib /usr/lib64 /usr/local/lib /usrlocal/lib64 /opt/local/lib /usr/lib/x86_64-linux-gnu
 )
 
 find_library(Libssh_crypto_LIBRARY NO_DEFAULT_PATH
   NAMES crypto
-  PATHS ${HT_DEPENDENCY_LIB_DIR} /usr/local/ssl/lib /lib /lib64 /usr/lib /usr/lib64 /usr/local/lib /usrlocal/lib64 /opt/local/lib
+  PATHS ${HT_DEPENDENCY_LIB_DIR} /usr/local/ssl/lib /lib /lib64 /usr/lib /usr/lib64 /usr/local/lib /usrlocal/lib64 /opt/local/lib /usr/lib/x86_64-linux-gnu
 )
 
 if (Libssh_INCLUDE_DIR AND Libssh_LIBRARY)
