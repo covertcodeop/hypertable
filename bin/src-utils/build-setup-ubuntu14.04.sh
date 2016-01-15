@@ -116,7 +116,7 @@ sed 's:<string.h>:<string.h>\
 #include <cstddef>:' re2/stringpiece.h > sp.bak && mv sp.bak re2/stringpiece.h
 make
 make install
-/bin/rm -rf ~/re2*
+#/bin/rm -rf ~/re2*
 
 # libunwind
 if [ $ARCH -eq 64 ]; then
@@ -136,11 +136,12 @@ cd ~
 wget http://google-perftools.googlecode.com/files/google-perftools-1.8.3.tar.gz
 tar xzvf google-perftools-1.8.3.tar.gz
 cd google-perftools-1.8.3
+sed -i -e 's/siginfo_t/siginfo/' src/base/linuxthreads.cc
 ./configure
 make
 make install
 cd ~
-/bin/rm -rf ~/google-perftools-1.8.3*
+#/bin/rm -rf ~/google-perftools-1.8.3*
 
 
 # Google Snappy
@@ -216,6 +217,12 @@ cd thrift-0.9.3
 ./configure --without-java
 make
 make install
+
+cd ~
+git clone https://github.com/jemalloc/jemalloc.git
+cd jemalloc
+./autogen.sh && ./configure && make && make install
+cd ~
 
 /sbin/ldconfig
 
