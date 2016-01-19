@@ -78,9 +78,9 @@ apt-get -y --allow-unauthenticated install ant autoconf automake libtool bison f
 #
 # Boost
 cd ~
-wget http://downloads.sourceforge.net/boost/boost_1_56_0.tar.bz2
-tar xjvf boost_1_56_0.tar.bz2
-cd boost_1_56_0
+wget http://downloads.sourceforge.net/boost/boost_1_57_0.tar.bz2
+tar xjvf boost_1_57_0.tar.bz2
+cd boost_1_57_0
 #Safer to build all libraries as other projects rely upon aspects of boost
 ./bootstrap.sh --with-libraries=all
 ./bjam install

@@ -15,9 +15,9 @@
 # You should have received a copy of the GNU General Public License
 # along with Hypertable. If not, see <http://www.gnu.org/licenses/>
 #
-include_directories(${Ceph_INCLUDE})
-add_executable(htFsBrokerCeph main.cc CephBroker.cc)
-target_link_libraries(htFsBrokerCeph HyperFsBroker ${Ceph_LIBRARIES}
-                      ${MALLOC_LIBRARY})
-
-install(TARGETS htFsBrokerCeph RUNTIME DESTINATION bin)
+#include_directories(${Ceph_INCLUDE})
+#add_executable(htFsBrokerCeph main.cc CephBroker.cc)
+#target_link_libraries(htFsBrokerCeph HyperFsBroker ${Ceph_LIBRARIES}
+#                      ${MALLOC_LIBRARY})
+#
+#install(TARGETS htFsBrokerCeph RUNTIME DESTINATION bin)
