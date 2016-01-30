@@ -205,11 +205,10 @@ make
 make install
 cd ../
 
-cd ~
 git clone https://github.com/jemalloc/jemalloc.git
 cd jemalloc
 ./autogen.sh && ./configure && make && make install
-cd ~
+cd ../
 
 /sbin/ldconfig
 
