@@ -21,7 +21,7 @@
 #  NODEJS_FOUND      - True if node.js found
 #  NODEJS_EXECUTABLE - Path to node.js executable
 
-exec_program(env ARGS which nodejs OUTPUT_VARIABLE NODEJS_EXECUTABLE
+exec_program(env ARGS which node OUTPUT_VARIABLE NODEJS_EXECUTABLE
              RETURN_VALUE NODEJS_RETURN)
 
 if (NODEJS_RETURN STREQUAL "0")

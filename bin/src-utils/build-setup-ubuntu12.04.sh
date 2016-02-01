@@ -42,7 +42,7 @@ update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 10
 apt-get -y --allow-unauthenticated install openjdk-6-jdk maven
 
 
-apt-get -y --allow-unauthenticated install ant autoconf automake libtool bison flex pkg-config php5 php5-dev php5-cli ruby ruby-dev python-dev libhttp-access2-ruby libbit-vector-perl libclass-accessor-chained-perl libssh-dev nodejs
+apt-get -y --allow-unauthenticated install ant autoconf automake libtool bison flex pkg-config php5 php5-dev php5-cli ruby ruby-dev python-dev libhttp-access2-ruby libbit-vector-perl libclass-accessor-chained-perl nodejs
 
 # Going to comment out and use the test ppa for gcc-5.x
 # Need the following prerequisties to build gcc52
@@ -219,6 +219,20 @@ tar xzvf thrift-0.9.3.tar.gz
 cd thrift-0.9.3
 #chmod 755 ./configure ./lib/php/src/ext/thrift_protocol/build/shtool
 ./configure --without-java
+make
+make install
+
+# Ubuntu 12.04 has an older version of libssh. It's necessary to download,
+# alter the code for GCC 5.2, and make install
+cd ~
+wget --no-check-certificate https://red.libssh.org/attachments/download/81/libssh-0.6.1.tar.xz
+tar -xf libssh-0.6.1.tar.xz
+cd libssh-0.6.1
+sed -i -e 's/, __FUNCTION__/, __func__/' include/libssh/priv.h
+sed -i -e 's/__FUNCTION__/__func__/' include/libssh/pki_priv.h src/auth.c
+mkdir build
+cd build
+cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Debug ..
 make
 make install
 
