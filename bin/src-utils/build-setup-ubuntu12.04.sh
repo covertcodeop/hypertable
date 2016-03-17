@@ -42,7 +42,7 @@ update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 10
 apt-get -y --allow-unauthenticated install openjdk-6-jdk maven
 
 
-apt-get -y --allow-unauthenticated install ant autoconf automake libtool bison flex pkg-config php5 php5-dev php5-cli ruby ruby-dev python-dev libhttp-access2-ruby libbit-vector-perl libclass-accessor-chained-perl nodejs
+apt-get -y --allow-unauthenticated install ant autoconf automake libtool bison flex pkg-config php5 php5-dev php5-cli ruby ruby-dev rubygems python-dev libhttp-access2-ruby libbit-vector-perl libclass-accessor-chained-perl nodejs
 
 mkdir ../../support
 cd ../../support
@@ -108,7 +108,7 @@ cd db-4.8.26/build_unix/
 make
 make install
 sh -c "echo '/usr/local/BerkeleyDB.4.8/lib' > /etc/ld.so.conf.d/BerkeleyDB.4.8.conf"
-cd ../
+cd ../../
 
 # Google RE2
 wget http://www.hypertable.com/uploads/re2.tgz
